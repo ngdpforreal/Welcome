@@ -1,26 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css" />
+    <style>
+        .fade {
+            transition: opacity 0.5s ease;
+        }
+    </style>
 </head>
-<body>
+<body class="min-h-screen bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center p-6">
 
-    <div class="container">
-        <div class="card">
-            <h1 id="welcomeText">Welcome</h1>
-            <p class="subtitle">Enjoy a clean, modern interface with smooth animations.</p>
+    <div class="text-center text-white">
+        <!-- MAIN TEXT -->
+        <h1 id="welcomeText" class="text-5xl font-bold fade mb-6" style="font-family: Poppins;">
+            Welcome
+        </h1>
 
-            <button class="btn" onclick="startEffect()">Explore</button>
+        <!-- Shortcuts -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 max-w-xl mx-auto">
+
+            <!-- Google -->
+            <a href="https://google.com" target="_blank"
+               class="bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition transform hover:scale-105 shadow-lg">
+                <div class="text-xl font-semibold">Google</div>
+                <p class="opacity-80 text-sm">Search anything</p>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank"
+               class="bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition transform hover:scale-105 shadow-lg">
+                <div class="text-xl font-semibold">YouTube</div>
+                <p class="opacity-80 text-sm">Watch videos</p>
+            </a>
+
+            <!-- Canva -->
+            <a href="https://canva.com" target="_blank"
+               class="bg-white/20 backdrop-blur-md rounded-2xl p-6 hover:bg-white/30 transition transform hover:scale-105 shadow-lg">
+                <div class="text-xl font-semibold">Canva</div>
+                <p class="opacity-80 text-sm">Design anything</p>
+            </a>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        let fonts = [
+            "Poppins",
+            "Inter",
+            "Montserrat",
+            "Arial Black",
+            "Courier New"
+        ];
+
+        let i = 0;
+
+        function cycleFont() {
+            const text = document.getElementById("welcomeText");
+
+            // Fade out
+            text.style.opacity = 0;
+
+            setTimeout(() => {
+                // Change font
+                text.style.fontFamily = fonts[i];
+
+                // Fade in
+                text.style.opacity = 1;
+
+                i = (i + 1) % fonts.length;
+            }, 500); // Wait for fade-out to finish
+        }
+
+        setInterval(cycleFont, 3000);
+    </script>
+
 </body>
 </html>
