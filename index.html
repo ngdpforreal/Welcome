@@ -3,83 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Home</title>
+    <title>Home</title>
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         .fade {
             transition: opacity 0.5s ease;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+        
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             background-size: 200% 200%;
             animation: gradientShift 15s ease infinite;
         }
+        
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .code-box {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #0f3460;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .github-btn {
+            background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+            border: 2px solid #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+        
+        .github-btn:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.5);
+            transform: scale(1.05) translateY(-2px);
+        }
+        
+        .card-google {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+        }
+        
+        .card-youtube {
+            background: linear-gradient(135deg, #ff0000 0%, #ff6b6b 100%);
+        }
+        
+        .card-canva {
+            background: linear-gradient(135deg, #00c4cc 0%, #7b2cbf 100%);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(255, 255, 255, 0.6),
+                         0 0 30px rgba(255, 255, 255, 0.4),
+                         0 0 40px rgba(102, 126, 234, 0.6);
+        }
     </style>
 </head>
-<body class="min-h-screen gradient-bg flex items-center justify-center p-6">
-    <div class="text-center text-white">
+<body class="min-h-screen gradient-bg flex items-center justify-center p-6 overflow-x-hidden">
+    <div class="text-center text-white max-w-6xl mx-auto">
         <!-- MAIN TEXT -->
-        <h1 id="welcomeText" class="text-6xl md:text-7xl font-bold fade mb-6 animate__animated animate__fadeInDown" style="font-family: Poppins; text-shadow: 2px 4px 8px rgba(0,0,0,0.3);">
+        <h1 id="welcomeText" class="text-7xl md:text-8xl font-black fade mb-8 animate__animated animate__fadeInDown neon-text" style="font-family: Poppins;">
             Welcome
         </h1>
 
         <!-- Quote of the Day - Developer Style -->
-        <div class="code-style rounded-lg p-6 max-w-2xl mx-auto mb-8 animate__animated animate__fadeIn animate__delay-1s">
-            <div class="text-xs text-green-400 mb-2">// Quote of the Day</div>
-            <div id="quote" class="text-lg italic mb-2 text-gray-100">Loading...</div>
-            <div id="author" class="text-sm text-green-400">- Author</div>
+        <div class="code-box rounded-2xl p-8 max-w-3xl mx-auto mb-10 animate__animated animate__fadeIn animate__delay-1s transform hover:scale-105 transition-all duration-300">
+            <div class="text-sm text-green-400 mb-3 font-mono tracking-wider">// Quote of the Day</div>
+            <div id="quote" class="text-xl italic mb-3 text-gray-100 leading-relaxed">Loading...</div>
+            <div id="author" class="text-base text-cyan-400 font-semibold">- Author</div>
         </div>
 
         <!-- GitHub Button - Developer Style -->
         <a href="https://github.com" target="_blank" 
-           class="github-btn inline-flex items-center gap-3 px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 mb-8 animate__animated animate__fadeIn animate__delay-2s">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+           class="github-btn inline-flex items-center gap-4 px-8 py-4 rounded-xl transition-all duration-300 mb-12 animate__animated animate__fadeIn animate__delay-2s font-bold">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
-            <span class="font-mono text-sm">git push origin awesome</span>
+            <span class="font-mono text-lg text-green-400">git push origin awesome</span>
         </a>
 
         <!-- Shortcuts -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <!-- Google -->
             <a href="https://google.com" target="_blank"
-               class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 shadow-2xl animate__animated animate__fadeInUp animate__delay-1s group">
-                <div class="text-2xl font-bold mb-2 group-hover:animate__animated group-hover:animate__pulse">🔍</div>
-                <div class="text-xl font-semibold mb-1">Google</div>
-                <p class="opacity-80 text-sm">Search anything</p>
+               class="card-google rounded-3xl p-10 transition-all duration-300 transform hover:scale-110 hover:-translate-y-3 shadow-2xl animate__animated animate__fadeInUp animate__delay-1s group border-4 border-white/30">
+                <div class="text-5xl mb-4 group-hover:animate__animated group-hover:animate__bounce">🔍</div>
+                <div class="text-2xl font-bold mb-2">Google</div>
+                <p class="text-white/90 text-base font-medium">Search anything</p>
             </a>
+            
             <!-- YouTube -->
             <a href="https://youtube.com" target="_blank"
-               class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 shadow-2xl animate__animated animate__fadeInUp animate__delay-2s group">
-                <div class="text-2xl font-bold mb-2 group-hover:animate__animated group-hover:animate__pulse">▶️</div>
-                <div class="text-xl font-semibold mb-1">YouTube</div>
-                <p class="opacity-80 text-sm">Watch videos</p>
+               class="card-youtube rounded-3xl p-10 transition-all duration-300 transform hover:scale-110 hover:-translate-y-3 shadow-2xl animate__animated animate__fadeInUp animate__delay-2s group border-4 border-white/30">
+                <div class="text-5xl mb-4 group-hover:animate__animated group-hover:animate__bounce">▶️</div>
+                <div class="text-2xl font-bold mb-2">YouTube</div>
+                <p class="text-white/90 text-base font-medium">Watch videos</p>
             </a>
+            
             <!-- Canva -->
             <a href="https://canva.com" target="_blank"
-               class="glass-card rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 shadow-2xl animate__animated animate__fadeInUp animate__delay-3s group">
-                <div class="text-2xl font-bold mb-2 group-hover:animate__animated group-hover:animate__pulse">🎨</div>
-                <div class="text-xl font-semibold mb-1">Canva</div>
-                <p class="opacity-80 text-sm">Design anything</p>
+               class="card-canva rounded-3xl p-10 transition-all duration-300 transform hover:scale-110 hover:-translate-y-3 shadow-2xl animate__animated animate__fadeInUp animate__delay-3s group border-4 border-white/30">
+                <div class="text-5xl mb-4 group-hover:animate__animated group-hover:animate__bounce">🎨</div>
+                <div class="text-2xl font-bold mb-2">Canva</div>
+                <p class="text-white/90 text-base font-medium">Design anything</p>
             </a>
         </div>
     </div>
-    <!-- JavaScript at the end -->
+    
     <script>
         // Fetch Quote of the Day
         async function fetchQuote() {
@@ -94,7 +135,6 @@
             }
         }
 
-        // Call on page load
         fetchQuote();
 
         // Font cycling for welcome text
